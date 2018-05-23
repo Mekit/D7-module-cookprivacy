@@ -9,28 +9,26 @@ function cookprivacy_preprocess_page(&$vars){
 
 /**
  * Aggiunge il messaggio e il javascript necessario al funzionamento dei cookie
- * @return [type] [description]
  */
-function _cookprivacy_add_cookie()
-{
+function _cookprivacy_add_cookie(){
   $opt = array(
     'attributes' => array(
-      'class' => array('btn', 'btn-xs', 'btn-default'),
+      'class' => array('btn', 'btn-xs', 'btn-default',),
     ),
   );
 
-  $msg = 'I cookie ci aiutano a fornire i nostri servizi. Utilizzando tali servizi, accetti l\'utilizzo dei cookie da parte nostra.';
+  $msg = 'Questo sito utilizza cookie tecnici e di terze parti per migliorare la tua navigazione. Proseguendo la navigazione acconsenti all\'utilizzo dei cookie.';
   $msg .= '&nbsp;<span>' . l('Informativa', 'cookie', $opt) . '</span>';
 
   $opt['attributes']['id'] = 'cookie-agree';
 
-  $msg .= ' <span>' . l('Ok', 'cookie', $opt) . '</span>';
+  $msg .= ' <span>' . l('Acconsento', 'cookie', $opt) . '</span>';
 
   $data = array(
     '#prefix' => '<div class="wrapper-cookie messages hide">',
     '#suffix' => '</div>',
     'msg' => array(
-      '#prefix' => '<div class="alert alert-block alert-info">',
+      '#prefix' => '<div class="alert alert-block alert-info small">',
       '#suffix' => '</div>',
       '#markup' => $msg,
     ),
@@ -54,7 +52,8 @@ function _cookprivacy_add_cookie()
 
 /**
  * Implements hook_menu()
- * @return [type] [description]
+ *
+ * @return array
  */
 function cookprivacy_menu() {
   $items['privacy'] = array(
@@ -81,9 +80,10 @@ function cookprivacy_menu() {
 
 /**
  * Cookprivacy settings
- * @param  [type] $form        [description]
- * @param  [type] &$form_state [description]
- * @return [type]              [description]
+ *
+ * @param  array $form
+ * @param  array &$form_state
+ * @return array
  */
 function cookprivacy_settings_form($form, &$form_state) {
 
@@ -157,8 +157,9 @@ function cookprivacy_settings_form($form, &$form_state) {
 
 /**
  * Salvataggio dei settaggi per cookprivacy
- * @param  [type] $form        [description]
- * @param  [type] &$form_state [description]
+ *
+ * @param  array $form
+ * @param  array &$form_state
  */
 function cookprivacy_settings_form_submit($form, &$form_state) {
   $settings = variable_get('cookprivacy', array());
@@ -170,6 +171,9 @@ function cookprivacy_settings_form_submit($form, &$form_state) {
   drupal_set_message(t('The settings have been saved'));
 }
 
+/**
+ * @return array
+ */
 function cp_privacy_page(){
   $settings = cp_get_settings();
 
@@ -177,11 +181,16 @@ function cp_privacy_page(){
     '#theme' => 'cp_privacy',
     '#company' => $settings['owner'],
     '#website' => $settings['website'],
+    '#owner' => $settings['owner'],
+    '#mail' => $settings['mail'],
     '#content' => array(),
   );
   return $data;
 }
 
+/**
+ * @return array
+ */
 function cp_cookie_page(){
   $settings = cp_get_settings();
 
@@ -194,6 +203,9 @@ function cp_cookie_page(){
   return $data;
 }
 
+/**
+ * @return bool|array
+ */
 function cp_get_settings(){
   $settings = variable_get('cookprivacy', false);
   if (!$settings){
@@ -223,6 +235,8 @@ function cookprivacy_theme(){
         'content' => array(),
         'company' => NULL,
         'website' => NULL,
+        'owner' => NULL,
+        'mail' => NULL,
       ),
       'pattern' => 'cp-privacy__',
     ),

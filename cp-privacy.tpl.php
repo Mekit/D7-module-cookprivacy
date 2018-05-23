@@ -11,11 +11,11 @@
         <h1>Termini generali e le condizioni d'uso dei dati personali</h1>
 
         <h2>Titolare del trattamento dei dati</h2>
-        <p>
-          Titolare: <?php print render($company); ?><br />
-          E-mail: <?php print render($mail); ?>
-        </p>
 
+        <p>
+          Titolare: <strong><?php print render($owner); ?></strong><br/>
+          E-mail: <strong><?php print render($mail); ?></strong>
+        </p>
 
         <h2>Trattamento dei dati personali e privacy</h2>
 
@@ -53,6 +53,16 @@
           <li>per motivi legittimi al trattamento dei dati personali che la riguardano, ancorché pertinenti allo scopo della raccolta.</li>
           <li>al trattamento di dati che la riguardano a fini di invio di materiale pubblicitario o di vendita diretta o per il compimento di ricerche di mercato o di comunicazione commerciale.</li>
         </ul>
+
+        <h2>Diritto all'aggiornamento, alla rettificazione o alla cancellazione dei dati personali</h2>
+        <p>
+          I soggetti cui si riferiscono i dati personali hanno il diritto in qualunque momento di ottenere la conferma dell’esistenza o meno dei medesimi dati e di conoscerne il contenuto e l’origine, verificarne l’esattezza o chiederne l’integrazione o l’aggiornamento, oppure la rettificazione. Ai sensi del’art.7 (Codice in materia di protezione dei dati personali) si ha il diritto di chiedere la cancellazione, la trasformazione in forma anonima o il blocco dei dati trattati in violazione di legge, nonché di opporsi in ogni caso, per motivi legittimi, al loro trattamento.
+        </p>
+        <p>
+          Eventuali richieste andranno rivolte:
+          via e-mail, all'indirizzo <strong><?php print render($mail); ?></strong>.
+        </p>
+        
       </div>
     </div>
   </div>
