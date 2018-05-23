@@ -10,9 +10,16 @@
       <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
         <h1>Termini generali e le condizioni d'uso dei dati personali</h1>
 
-        <p>Attraverso l'invio della richesta di informazioni e la compilazione dei form presenti su questo sito l'utente dichiara di aver preso visione e conseguentemente di accettare espressamente le seguenti condizioni d'uso.</p>
+        <h2>Titolare del trattamento dei dati</h2>
+        <p>
+          Titolare: <?php print render($company); ?><br />
+          E-mail: <?php print render($mail); ?>
+        </p>
+
 
         <h2>Trattamento dei dati personali e privacy</h2>
+
+        <p>Attraverso l'invio della richesta di informazioni e la compilazione dei form presenti su questo sito l'utente dichiara di aver preso visione e conseguentemente di accettare espressamente le seguenti condizioni d'uso.</p>
 
         <p>I dati personali richiesti attraverso i form di contatto presenti sul sito sono raccolti e trattati al fine di ricontattare l'utente e presentare una eventuale proposta di servizio e non verranno in nessun caso e a nessun titolo ceduti a terzi.
           <strong><?php print render($company); ?></strong> garantisce ai propri clienti il rispetto della normativa in materia di trattamento dei dati personali, disciplinata dal codice della privacy di cui al <em>D.L. 196 del 30.06.03.</em></p>
